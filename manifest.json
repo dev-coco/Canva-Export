@@ -1,0 +1,43 @@
+{
+  "name": "Canva Export",
+  "version": "1.0.0",
+  "author": "Raz1ner",
+  "manifest_version": 3,
+  "description": "Canva 批量下载资源",
+  "action": {
+    "default_icon": "icon.png"
+  },
+  "icons": {
+    "128": "icon.png"
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "*://www.canva.com/*"
+      ],
+      "js": [
+        "inject.js"
+      ]
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "myScript.js"
+      ],
+      "matches": [
+        "*://www.canva.com/*"
+      ]
+    }
+  ],
+  "host_permissions": [
+    "*://www.canva.com/*"
+  ],
+  "permissions": [
+    "downloads",
+    "scripting"
+  ]
+}
